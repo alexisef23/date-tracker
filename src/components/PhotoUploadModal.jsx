@@ -125,7 +125,7 @@ export default function PhotoUploadModal({ idea, isOpen, onClose }) {
                 ref={cameraInputRef} 
                 onChange={handleFileChange} 
                 className="hidden" 
-                accept="image/*"
+                accept="image/*;capture=camera"
                 capture="environment"
               />
               
