@@ -4,7 +4,7 @@ import { Heart, BookImage } from 'lucide-react';
 
 export default function Layout({ children, activeTab, setActiveTab }) {
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-classic-beige-100 max-w-md mx-auto shadow-2xl relative">
+    <div className="flex flex-col h-[100dvh] sm:h-[85vh] overflow-hidden bg-classic-beige-100 max-w-md mx-auto sm:rounded-3xl shadow-none sm:shadow-2xl relative sm:border border-classic-beige-200 transform">
       {/* Header Clásico */}
       <header className="pt-12 pb-6 px-6 bg-classic-beige-50 shadow-sm z-10 relative">
         <div className="flex justify-between items-center">

@@ -18,11 +18,8 @@ function AppContent() {
 function App() {
   return (
     <DateProvider>
-      <div className="min-h-screen bg-gray-100 sm:py-10 flex justify-center items-center">
-        <div className="w-full h-screen sm:h-[844px] sm:w-[390px] sm:rounded-[3rem] overflow-hidden shadow-2xl relative bg-black ring-4 ring-black transform">
-           {/* Mock of a phone bezel for desktop view */}
-          <AppContent />
-        </div>
+      <div className="min-h-screen bg-gray-100 sm:py-8">
+        <AppContent />
       </div>
     </DateProvider>
   );
