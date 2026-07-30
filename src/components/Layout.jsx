@@ -11,7 +11,7 @@ export default function Layout({ children, activeTab, setActiveTab }) {
           <h1 className="text-2xl font-serif text-classic-blue-900 font-medium">Nuestras Salidas</h1>
           <Heart className="text-classic-blue-400 w-6 h-6" strokeWidth={1.5} />
         </div>
-        <p className="text-classic-blue-600/70 text-sm mt-1 font-serif italic">Un registro de nuestros momentos</p>
+        <p className="text-classic-blue-600/70 text-sm mt-1 font-serif italic">para que no se nos olviden</p>
       </header>
 
       {/* Área de Contenido con scroll */}
