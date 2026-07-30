@@ -18,7 +18,7 @@ function AppContent() {
 function App() {
   return (
     <DateProvider>
-      <div className="min-h-screen bg-gray-100 sm:py-8">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center sm:p-8">
         <AppContent />
       </div>
     </DateProvider>
