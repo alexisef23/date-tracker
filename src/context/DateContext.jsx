@@ -73,26 +73,32 @@ export function DateProvider({ children }) {
     };
   }, []);
 
+  // Helper para generar UUID seguro incluso en HTTP/móviles
+  const generateUUID = () => {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+      return crypto.randomUUID();
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  };
+
   const addIdea = async (idea) => {
-    // Actualización optimista
-    const tempId = `temp-${Date.now()}`;
-    const newIdea = { ...idea, id: tempId, completed: false, createdAt: new Date().toISOString() };
+    // Actualización optimista con UUID real (seguro)
+    const id = generateUUID();
+    const newIdea = { ...idea, id, completed: false, createdAt: new Date().toISOString() };
     setIdeas(prev => [newIdea, ...prev]);
 
     try {
-      const { data, error } = await supabase.from('dates').insert([{
-        ...idea,
-        completed: false
-      }]).select().single();
+      const { error } = await supabase.from('dates').insert([newIdea]);
       
       if (error) throw error;
       
-      // Actualizar el id temporal con el real de la BD
-      setIdeas(prev => prev.map(i => i.id === tempId ? data : i));
     } catch (error) {
       console.error("Error agregando idea: ", error);
       // Revertir si hay error
-      setIdeas(prev => prev.filter(i => i.id !== tempId));
+      setIdeas(prev => prev.filter(i => i.id !== id));
     }
   };
 
