@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, UploadCloud, Image as ImageIcon } from 'lucide-react';
+import { X, UploadCloud, Image as ImageIcon, Camera } from 'lucide-react';
 import { useDateTracker } from '../context/DateContext';
 import { supabase } from '../supabase';
 
@@ -10,6 +10,7 @@ export default function PhotoUploadModal({ idea, isOpen, onClose }) {
   const [preview, setPreview] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const fileInputRef = useRef(null);
+  const cameraInputRef = useRef(null);
 
   if (!isOpen || !idea) return null;
 
@@ -91,10 +92,18 @@ export default function PhotoUploadModal({ idea, isOpen, onClose }) {
             <div className="mb-4 flex gap-2 justify-center">
                <button 
                 onClick={() => { fileInputRef.current?.click(); }}
-                className="flex items-center gap-2 px-6 py-2.5 bg-classic-beige-200 hover:bg-classic-beige-300 text-classic-blue-800 rounded-xl text-sm transition-colors font-medium shadow-sm"
+                className="flex items-center gap-2 px-4 py-2.5 bg-classic-beige-200 hover:bg-classic-beige-300 text-classic-blue-800 rounded-xl text-sm transition-colors font-medium shadow-sm flex-1 justify-center"
                >
                  <ImageIcon className="w-5 h-5" />
-                 Seleccionar Imagen
+                 Galería
+               </button>
+               
+               <button 
+                onClick={() => { cameraInputRef.current?.click(); }}
+                className="flex items-center gap-2 px-4 py-2.5 bg-classic-blue-100 hover:bg-classic-blue-200 text-classic-blue-800 rounded-xl text-sm transition-colors font-medium shadow-sm flex-1 justify-center"
+               >
+                 <Camera className="w-5 h-5" />
+                 Cámara
                </button>
             </div>
 
@@ -110,6 +119,14 @@ export default function PhotoUploadModal({ idea, isOpen, onClose }) {
                 onChange={handleFileChange} 
                 className="hidden" 
                 accept="image/*"
+              />
+              <input 
+                type="file" 
+                ref={cameraInputRef} 
+                onChange={handleFileChange} 
+                className="hidden" 
+                accept="image/*"
+                capture="environment"
               />
               
               {preview ? (
