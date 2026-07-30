@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-classic-beige-100 text-slate-800 font-sans antialiased selection:bg-classic-blue-200 selection:text-classic-blue-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-slate-900;
+  }
+}
+
+/* Custom scrollbar for webkit browsers, keeping it clean */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-classic-beige-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-classic-beige-400;
+}
