@@ -6,7 +6,7 @@ export default function Layout({ children, activeTab, setActiveTab }) {
   return (
     <div className="flex flex-col h-[100dvh] sm:h-[85vh] w-full max-w-md overflow-hidden bg-classic-beige-100 mx-auto sm:rounded-3xl shadow-none sm:shadow-2xl relative sm:border border-classic-beige-200 transform">
       {/* Header Clásico */}
-      <header className="pt-12 pb-6 px-6 bg-classic-beige-50 shadow-sm z-10 relative">
+      <header className="pt-12 pb-6 px-4 sm:px-6 bg-classic-beige-50 shadow-sm z-10 relative">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-serif text-classic-blue-900 font-medium">Nuestras Salidas</h1>
           <Heart className="text-classic-blue-400 w-6 h-6" strokeWidth={1.5} />
@@ -15,7 +15,7 @@ export default function Layout({ children, activeTab, setActiveTab }) {
       </header>
 
       {/* Área de Contenido con scroll */}
-      <main className="flex-1 overflow-y-auto px-6 py-6 scroll-smooth">
+      <main className="flex-1 overflow-y-auto px-4 sm:px-6 py-6 scroll-smooth">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -31,7 +31,7 @@ export default function Layout({ children, activeTab, setActiveTab }) {
       </main>
 
       {/* Navegación Inferior (Tabs) */}
-      <nav className="bg-classic-beige-50 border-t border-classic-beige-200 px-6 py-4 flex justify-around items-center pb-8 z-10 relative">
+      <nav className="bg-classic-beige-50 border-t border-classic-beige-200 px-4 sm:px-6 py-4 flex justify-around items-center pb-8 z-10 relative">
         <button 
           onClick={() => setActiveTab('ideas')}
           className={`flex flex-col items-center transition-colors duration-300 ${activeTab === 'ideas' ? 'text-classic-blue-700' : 'text-slate-400'}`}

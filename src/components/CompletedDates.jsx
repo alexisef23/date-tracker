@@ -12,7 +12,7 @@ export default function CompletedDates() {
   };
 
   return (
-    <div className="pb-24">
+    <div className="pb-32">
       {memories.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-64 text-classic-blue-300">
           <BookImage className="w-16 h-16 mb-4 opacity-50" strokeWidth={1} />

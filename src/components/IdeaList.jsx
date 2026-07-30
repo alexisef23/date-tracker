@@ -15,7 +15,7 @@ export default function IdeaList() {
   };
 
   return (
-    <div className="pb-24">
+    <div className="pb-32">
       {ideas.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-full min-h-[300px] text-classic-blue-300">
           <CalendarHeart className="w-16 h-16 mb-4 opacity-50" strokeWidth={1} />
